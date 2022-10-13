@@ -27,12 +27,7 @@ class Queue {
   }
 
   getUnderlyingList() {
-    //перебор
-    let current = this.head;
-    while (current) {
-      current += current.next;
-    }
-    return current;
+    return this.head;
   }
 
   enqueue(value) {
