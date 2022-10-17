@@ -19,7 +19,9 @@ class BinarySearchTree {
     this.root = null;
   }
 
-  root() {}
+  root() {
+    return this.root;
+  }
 
   add(value) {
     this.root = addWithin(this.root, value);
@@ -61,8 +63,25 @@ class BinarySearchTree {
     }
   }
 
-  find(/* data */) {}
+  find(data) {
+    function findNode(node, data) {
+      if (!node) {
+        return null;
+      }
 
+      if (node.data === data) {
+        return node;
+      }
+
+      if (data > node.data) {
+        return findNode(node.right, data);
+      } else {
+        return findNode(node.left, data);
+      }
+    }
+
+    return findNode(this.treeRoot, data);
+  }
   remove(value) {
     this.root = removeNode(this.root, value);
 
